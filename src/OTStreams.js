@@ -20,16 +20,18 @@ export default function OTStreams(props, context) {
       : child))
     : null;
 
-  return <div>{childrenWithContextWrapper}</div>;
+  return <div className={props.className}>{childrenWithContextWrapper}</div>;
 }
 
 OTStreams.propTypes = {
   children: PropTypes.element.isRequired,
+  className: PropTypes.string,
   session: PropTypes.shape({ publish: PropTypes.func, subscribe: PropTypes.func }),
   streams: PropTypes.arrayOf(PropTypes.object),
 };
 
 OTStreams.defaultProps = {
+  className: '',
   session: null,
   streams: null,
 };
